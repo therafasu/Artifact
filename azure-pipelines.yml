@@ -10,10 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script:- script: npm install
+  displayName: 'install Node.js dependencies'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    npm run build
+  displayName: 'Run build script'
+
+  - script
+    npm test 
+  displayName: 'Run test'
